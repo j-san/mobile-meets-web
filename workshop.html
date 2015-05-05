@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mobile Meets Web</title>
+
+    <meta name="description" content="Presentation about how mobile meets web">
+    <meta name="author" content="Jonathan Sanchez Pando">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="http://rawgit.com/hakimel/reveal.js/master/css/reveal.css">
+    <link rel="stylesheet" href="http://rawgit.com/hakimel/reveal.js/master/css/theme/league.css" id="theme">
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ?
+        'https://raw.githubusercontent.com/hakimel/reveal.js/master/css/print/pdf.css' :
+        'https://raw.githubusercontent.com/hakimel/reveal.js/master/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+    .reveal .slides {
+      text-align: left;
+    }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      text-transform: none;
+      margin: 30px 0px 20px;
+    }
+    .reveal h1, .reveal h2 {
+      text-align: center;
+    }
+    .reveal pre {
+      font-size: inherit;
+    }
+    .reveal code {
+      display: inline-block;
+    }
+    .reveal pre code,
+    .reveal code {
+      background: #3F3F3F none repeat scroll 0% 0%;
+      padding: 2px;
+      font-size: 0.55em;
+      line-height: 1em;
+      color: #17ff2e;
+      vertical-align: middle;
+    }
+    .reveal pre code {
+      padding: 8px 20px;
+    }
+    .reveal strong, .reveal b {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #FF5E99;
+    }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\n\n--(-)+\n$">
+<script type="text/template">
+
+
+Mobile Meets Web
+================
+
+[*Jonathan Sanchez Pando*](http://jsan.me/)
+
+
+----------------------------------------------
+
+Mobile use cases
+----------------
+
+1. Web
+2. Mobility
+3. Internet of Things
+
+
+----------------------------------------------
+
+**Mobile** go with **Web**
+--------------------------
+
+- Connected all the time
+- Access to information everywhere
+- Web trafic on mobile device is growing up fast
+
+
+----------------------------------------------
+
+**Mobile** go with **Mobility**
+-------------------------------
+
+- On the way
+- Work in the field
+- Geospacial informations
+
+
+----------------------------------------------
+
+**Mobile** go with **Internet of things**
+-----------------------------------------
+
+- Control stuff from everywhere (car, door, ...)
+- Payments
+- Beacons, Geofencing
+
+
+----------------------------------------------
+
+UX - [Mobile First](http://static.lukew.com/MobileFirst_LukeW.pdf)
+-------------------
+
+*Designing the mobile app first forced us to strip down to essentials.*
+
+[Luke Wroblewski](http://www.lukew.com/)
+
+
+----------------------------------------------
+
+Ergonomy of a mobile app
+------------------------
+
+No concentration, no time available
+
+- Apps must be focused and deadly simple
+- Partial attention requires focused design
+- Short visits
+- Size of the sreen: constent must be simple/clear
+- Touch screen
+
+
+----------------------------------------------
+
+Mobile First: How-to
+--------------------
+
+- Keep only the required features, remove everythings else
+- Then add only very usefull features for desktop
+- What you need before what you want
+- It is easyer to add stuff than remove complexity
+
+
+----------------------------------------------
+
+Exemple
+-------
+
+```
+register form
+```
+
+- Was very long on desktop
+- Becomes 3 field: `email`, `password` and `verify password`
+- Becomes 2 field: `email` and `password`
+
+zero password authentication:
+
+- One field authentication: `email`
+- Third-party authentication / SSO: `just a button`
+
+
+----------------------------------------------
+
+Material design / Flat desing
+-----------------------------
+
+- Visual language
+- Give indications: animations, shadows, spaces, typos, ...
+- Simple, less processing, less perturbation
+
+
+----------------------------------------------
+
+Application Architecture
+------------------------
+
+1. Responsive / Adaptive
+2. SPA / Hybrid app
+3. Native app
+
+
+----------------------------------------------
+
+Responsive
+----------
+
+*Layout change depending on device size.*
+
+- Very highy interoperability / accessibility
+- indexable (seo)
+- Easy to develop / lots of tools
+
+
+----------------------------------------------
+
+Responsive
+----------
+
+### How-to:
+
+- server always sends the same HTML code to all devices
+- Server side content processing
+- html5 / css3 / Bootstrap
+- Media queries / Viewport meta tag
+
+
+----------------------------------------------
+
+Adaptive
+--------
+
+*Alternative html computed for mobile.*
+
+- Lighter content, good for legacy or heavy application
+- Same benefit as responsive but more expensive
+
+
+----------------------------------------------
+
+Adaptive
+--------
+
+### How-to:
+
+- Separate processing of html
+
+### **Warning**
+
+- handle properly SEO (ggbot user agent and duplicate content)
+
+
+----------------------------------------------
+
+Single Page App
+---------------
+
+*Client side application.*
+
+- All asstets are static (html, js, css)
+- Web hosted and offline capability ([html5 cache manifest](http://www.html5rocks.com/en/tutorials/appcache/beginner/))
+- Esealy become hybride
+- Not indexable
+
+
+----------------------------------------------
+
+Single Page App
+---------------
+
+### How-to:
+
+- front-end is separate from back-end, http is between
+ - Api based server to fetch raw content
+ - Content is processed client side with Javascript
+- Module loader / Transpiler helps for big projects
+
+### **Warning**
+
+- Performance matter, big codebase is an issue
+- Interoperability testing
+
+
+----------------------------------------------
+
+isomorphic Single Page App
+--------------------------
+
+*Pre-process Single Page App server side.*
+
+- Make Single Page App indexable
+
+### How-to:
+
+- Compute page content server side with client side code
+
+
+----------------------------------------------
+
+Hybrid app
+----------
+
+*System integrated web app.*
+
+- Native capability (push notifications, sync, crypt, geofencing, ...)
+- Native delegation for client side hight processing, 3D, ...
+
+
+----------------------------------------------
+
+Hybrid app
+----------
+
+### How-to:
+
+- Single Page App packaged using Phonegap / Cordova
+
+### **Warning**
+
+- Performance matter
+
+
+----------------------------------------------
+
+Native app
+----------
+
+*System integrated app.*
+
+- hight performance for client side hight processing, 3D, ...
+- Hight development cost
+- Very specific skills, not reusable knowlege
+- Not interoperable, only one platform is targeted
+
+
+----------------------------------------------
+
+Native app
+----------
+
+### How-to:
+
+- Java based for Android
+- C based for iOS
+- Web based for Blackberry and FFOS
+
+----------------------------------------------
+
+    |                   | Responsive | SPA        | Hybride    | Native     |
+    |-------------------|------------|------------|------------|------------|
+    | Interoperability  | `****`     | `***`      | `**`       | `*`        |
+    | Indexable         | `****`     | `**`       | `-`        | `-`        |
+    | Accessibility     | `****`     | `***`      | `**`       | `*`        |
+    | Performance       | `****`     | `**`       | `**`       | `****`     |
+    | Cost              | `****`     | `***`      | `***`      | `*`        |
+    | Sytem integration | `**`       | `**`       | `****`     | `****`     |
+
+
+----------------------------------------------
+
+Javascript Ecosystem
+--------------------
+
+- Biggest modules ecosystem of every languages
+- Add modularity to Frameworks
+- Better scallability
+
+
+----------------------------------------------
+
+No framework trend
+------------------
+
+*Change is the only constant*
+
+- Web is evolving fast, response to change matter
+- Cut frameworks in peaces
+- Make the migration possible (angular.js 2.0 nightmare)
+- Does not mean *"Without Framework"*
+
+
+----------------------------------------------
+
+Modularity
+----------
+
+```
+npm install jquery --save
+```
+
+- Easy to install / upgrade, libraries are not in git
+- Outdate detection
+- Code validation, dependencies resolution
+- Optimisation capability
+
+
+----------------------------------------------
+
+Modules
+-------
+
+- Choose it right!
+- Reputation:
+
+```
+Stars * Contributors
+--------------------
+Age * Importance
+```
+
+- Activity: Last commit, open issues, open pull request
+- [Porter](https://porter.io/)
+
+
+----------------------------------------------
+
+Front-end
+---------
+
+- MVC: **Backbone.js**, **Angular.js**, **React.js**, Knockout,  SproutCore, Ember, Sammy.js, Can.js, Dojo, ...
+- Template: **Handlebars.js**, Jade, Underscore, Moustache.js ...
+- UI:  **Bootstrap**, 960 Grid System, Topcoat, jQuery UI, Kendo UI, ...
+- Polyfiller: **jQuery**, **Underscore**, **Loadhash**, ...
+
+
+----------------------------------------------
+
+Build
+-----
+
+- Package Manager: **npm**, **Bower**, Component, jspm, ...
+- Module Loader: **require.js**, **Webpack**, browserify, Duo, Steal.js, ...
+- Build: **Make**, **Grunt**, **npm**, Gulp, Jake, Volo, Concat+Uglify, ...
+- CSS transpiler: **Less**, Sass, Stylus, ...
+- JS transpiler: **Babel**, Coffescript, Typescript, Spider, ...
+
+
+----------------------------------------------
+
+Testing
+-------
+
+- Test: **Mocha**, **Jasmine**, **QUnit**, ...
+- Assert: **Chai**, **Should**, Assert, ...
+- Lint: **jsHint**, **ESlint**, JSLint, ...
+- Mock: **Sinon**, **Jasmine**, **Nock**, ...
+- Runner: **Testem**, saucelabs, ...
+- Driver: Nightwatch.js, Casper.js, Selenium ...
+- Coverage: **Blanket**, **Istanbul**, ...
+
+
+----------------------------------------------
+
+Backend
+-------
+
+- web server: **Express**, **Koa**, **Keystone.js** ...
+- api server: restify, sails.js, ...
+
+
+----------------------------------------------
+
+Global Module Binding
+---------------------
+
+- No var validation
+- Dependencies are managed in script tags
+- Hard optimisation (uglify)
+
+
+----------------------------------------------
+
+Global Module Binding
+---------------------
+
+```Javascript
+// mod1.js
+var a = 1;
+```
+
+```Javascript
+// mod2.js
+console.log(a);
+```
+
+
+----------------------------------------------
+
+AMD
+---
+
+- Async Module Definition
+- Variable validation (all variables are explicitly declared)
+- Optimisable
+- Verbose
+- Require.js, Steal.js
+
+
+----------------------------------------------
+
+AMD
+---
+
+```Javascript
+// mod1.js
+require(function () {
+  return {a: 1};
+});
+```
+
+```Javascript
+// mod2.js
+require(['mod1'], function (mod1) {
+  console.log(mod1.a);
+});
+```
+
+----------------------------------------------
+
+CommonJS
+--------
+
+```Javascript
+// mod1.js
+exports.a = 1;
+```
+
+```Javascript
+// mod2.js
+var mod = require('mod1');
+
+console.log(mod.a);
+```
+
+- Same as AMD but not async
+- Must be transpiled
+- Browserify, Webpack, Steal.js
+
+----------------------------------------------
+
+ES6
+---
+
+```Javascript
+// mod1.js
+export var a = 1;
+```
+
+```Javascript
+// mod2.js
+import {a} from 'mod1';
+
+console.log(a);
+```
+- same as CommonJS
+- ES6 standard, more elegant
+- Babel.js, Steal.js, Require.js, Native browser comming soon
+
+
+----------------------------------------------
+
+Conclusion
+----------
+
+Mobile development is hard and require more skills but Mobile and Web go in the same direction,
+there are crossroads so lets works on it to get the best user experience.
+
+</script>
+        </section>
+    </div>
+</div>
+
+    <script src="http://rawgit.com/hakimel/reveal.js/master/lib/js/head.min.js"></script>
+    <script src="http://rawgit.com/hakimel/reveal.js/master/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://rawgit.com/hakimel/reveal.js/master/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+</body>
+</html>
