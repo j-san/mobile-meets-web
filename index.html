@@ -88,8 +88,8 @@ Mobile use cases
 
 ----------------------------------------------
 
-**Mobile** go with **Web**
---------------------------
+**Mobile** goes with **Web**
+----------------------------
 
 - Connected all the time
 - Access to information everywhere
@@ -98,8 +98,8 @@ Mobile use cases
 
 ----------------------------------------------
 
-**Mobile** go with **Mobility**
--------------------------------
+**Mobile** goes with **Mobility**
+---------------------------------
 
 - On the way
 - Work in the field
@@ -108,8 +108,8 @@ Mobile use cases
 
 ----------------------------------------------
 
-**Mobile** go with **Internet of things**
------------------------------------------
+**Mobile** goes with **Internet of things**
+-------------------------------------------
 
 - Control stuff from everywhere (car, door, ...)
 - Payments
@@ -131,13 +131,12 @@ UX - [Mobile First](http://static.lukew.com/MobileFirst_LukeW.pdf)
 Ergonomy of a mobile app
 ------------------------
 
-No concentration, no time available
+*No concentration, no time available*
 
-- Apps must be focused and deadly simple
 - Partial attention requires focused design
 - Short visits
-- Size of the sreen: constent must be simple/clear
-- Touch screen
+- Touch screen / Size of the screen
+- Apps must be focused and deadly simple
 
 
 ----------------------------------------------
@@ -248,8 +247,8 @@ Single Page App
 *Client side application.*
 
 - All assets are static (html, js, css)
-- Web hosted and offline capability ([html5 cache manifest](http://www.html5rocks.com/en/tutorials/appcache/beginner/))
-- Easily becomes hybrid
+- Online web hosted
+- Easily becomes hybrid and offline capability ([html5 cache manifest](http://www.html5rocks.com/en/tutorials/appcache/beginner/))
 - Not indexable
 
 
@@ -263,7 +262,6 @@ Single Page App
 - front-end is separate from back-end, http is between
  - Api based server to fetch raw content
  - Content is processed client side with Javascript
-- Module loader / Transpiler helps for big projects
 
 ### **Warning**
 
@@ -394,159 +392,14 @@ Modules
 - Reputation:
 
 ```
-Stars * Contributors
---------------------
+Stars * Test coverage
+---------------------
 Age * Importance
 ```
 
 - Activity: Last commit, open issues, open pull request
 - [Porter](https://porter.io/)
-
-
-----------------------------------------------
-
-Front-end
----------
-
-- MVC: **Backbone.js**, **Angular.js**, **React.js**, Knockout,  SproutCore, Ember, Sammy.js, Can.js, Dojo, ...
-- Template: **Handlebars.js**, Jade, Underscore, Moustache.js ...
-- UI:  **Bootstrap**, 960 Grid System, Topcoat, jQuery UI, Kendo UI, ...
-- Polyfiller: **jQuery**, **Underscore**, **Loadhash**, ...
-
-
-----------------------------------------------
-
-Build
------
-
-- Package Manager: **npm**, **Bower**, Component, jspm, ...
-- Module Loader: **require.js**, **Webpack**, browserify, Duo, Steal.js, ...
-- Build: **Make**, **Grunt**, **npm**, Gulp, Jake, Volo, Concat+Uglify, ...
-- CSS transpiler: **Less**, Sass, Stylus, ...
-- JS transpiler: **Babel**, Coffescript, Typescript, Spider, ...
-
-
-----------------------------------------------
-
-Testing
--------
-
-- Test: **Mocha**, **Jasmine**, **QUnit**, ...
-- Assert: **Chai**, **Should**, Assert, ...
-- Lint: **jsHint**, **ESlint**, JSLint, ...
-- Mock: **Sinon**, **Jasmine**, **Nock**, ...
-- Runner: **Testem**, saucelabs, ...
-- Driver: Nightwatch.js, Casper.js, Selenium ...
-- Coverage: **Blanket**, **Istanbul**, ...
-
-
-----------------------------------------------
-
-Backend
--------
-
-- web server: **Express**, **Koa**, **Keystone.js** ...
-- api server: restify, sails.js, ...
-
-
-----------------------------------------------
-
-Global Module Binding
----------------------
-
-- No var validation
-- Dependencies are managed in script tags
-- Hard optimisation (uglify)
-
-
-----------------------------------------------
-
-Global Module Binding
----------------------
-
-```Javascript
-// mod1.js
-var a = 1;
-```
-
-```Javascript
-// mod2.js
-console.log(a);
-```
-
-
-----------------------------------------------
-
-AMD
----
-
-- Async Module Definition
-- Variable validation (all variables are explicitly declared)
-- Optimisable
-- Verbose
-- Require.js, Steal.js
-
-
-----------------------------------------------
-
-AMD
----
-
-```Javascript
-// mod1.js
-require(function () {
-  return {a: 1};
-});
-```
-
-```Javascript
-// mod2.js
-require(['mod1'], function (mod1) {
-  console.log(mod1.a);
-});
-```
-
-----------------------------------------------
-
-CommonJS
---------
-
-```Javascript
-// mod1.js
-exports.a = 1;
-```
-
-```Javascript
-// mod2.js
-var mod = require('mod1');
-
-console.log(mod.a);
-```
-
-- Same as AMD but not async
-- Must be transpiled
-- Browserify, Webpack, Steal.js
-
-----------------------------------------------
-
-ES6
----
-
-```Javascript
-// mod1.js
-export var a = 1;
-```
-
-```Javascript
-// mod2.js
-import {a} from 'mod1';
-
-console.log(a);
-```
-- same as CommonJS
-- ES6 standard, more elegant
-- Babel.js, Steal.js, Require.js, Native browser comming soon
-
+- Test it yourself first !
 
 ----------------------------------------------
 
